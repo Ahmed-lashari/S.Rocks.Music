@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skility_x/constants/app_colors.dart';
 import 'package:skility_x/core/utils.dart/validators/validators_service.dart';
-import 'package:skility_x/view-model/data_providers/screens/widgets/text_controller_provider.dart';
+import 'package:skility_x/view_model/data_providers/screens/widgets/text_controller_provider.dart';
 import 'package:skility_x/view/widgets/custom_icons.dart';
 
 class myTextField extends ConsumerWidget {

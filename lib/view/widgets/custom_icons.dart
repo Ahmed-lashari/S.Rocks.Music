@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:skility_x/constants/app_colors.dart';
 import 'package:skility_x/constants/app_icons.dart';
-import 'package:skility_x/view-model/ui_providers/screens/widgets/custom_icons.dart';
+import 'package:skility_x/view_model/ui_providers/screens/widgets/custom_icons.dart';
 
 class CustomIcon extends ConsumerWidget {
   final String icon;

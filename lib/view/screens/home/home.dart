@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skility_x/constants/app_colors.dart';
 import 'package:skility_x/constants/app_icons.dart';
-import 'package:skility_x/view-model/ui_providers/screens/home/home.dart';
+import 'package:skility_x/view_model/ui_providers/screens/home/home.dart';
 import 'package:skility_x/view/screens/home/1_home_tab.dart';
 import 'package:skility_x/view/screens/home/2_news_tab.dart';
 import 'package:skility_x/view/screens/home/3_trackbox_tab.dart';
