@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skility_x/core/config/init_dependencies.dart';
 import 'package:skility_x/view/screens/home/home.dart';
 // import 'core/config/init_dependencies.dart';
 import 'view/themes/theme_manager.dart';
@@ -9,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // initilizing dependencies
-  // await InitDependencies.initBootStrap();
+  await InitDependencies.initBootStrap();
 
   runApp(const ProviderScope(child: SRocksMusic()));
 }
