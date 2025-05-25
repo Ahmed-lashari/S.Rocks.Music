@@ -29,11 +29,17 @@ class _SRocksMusicState extends State<SRocksMusic> {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            themeMode: ThemeMode.dark,
-            theme: ThemeManager.darkTheme,
-            home: child);
+        return SafeArea(
+          top: false,
+          bottom: true,
+          right: true,
+          left: true,
+          child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              themeMode: ThemeMode.dark,
+              theme: ThemeManager.darkTheme,
+              home: child),
+        );
       },
       child: const HomeTabs(),
     );
