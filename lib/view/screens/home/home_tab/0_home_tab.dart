@@ -119,15 +119,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               // button
               ElevatedButton(
                   onPressed: () async {
-                    try {
-                      Utils.toastMsg(
-                          "Saving data into database", ToastificationType.info);
-                      await ref.read(saveCardsDataProvider);
-                      Utils.toastMsg(
-                          "Successfully saved", ToastificationType.success);
-                    } catch (e, h) {
-                      Utils.handleError(e, h);
-                    }
+                    // try {
+                    //   Utils.toastMsg(
+                    //       "Saving data into database", ToastificationType.info);
+                    //   await ref.read(saveCardsDataProvider);
+                    //   Utils.toastMsg(
+                    //       "Successfully saved", ToastificationType.success);
+                    // } catch (e, h) {
+                    //   Utils.handleError(e, h);
+                    // }
                   },
                   style: ElevatedButton.styleFrom(
                       fixedSize: Size(110.w, 40.h),
@@ -151,10 +151,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         error: (e, h) => Text(e.toString()),
         loading: () => ScrollableShimmer(),
         data: (data) {
-          if (data.isEmpty) {
-            return Text(
-                "no data available.\nPlease uncomment the Book Now botton function and press one time, after that refresh the app to retrive data.");
-          }
+          if (data.isEmpty)
+            Text(
+                "No data available.\nPlease uncomment the Book Now botton function and press one time, after that refresh the app to retrive data.");
 
           return ScrollableCOntent(list: data);
         },

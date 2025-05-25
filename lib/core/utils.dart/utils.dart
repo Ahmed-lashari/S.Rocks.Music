@@ -16,7 +16,7 @@ class Utils {
 
   static void handleError(dynamic e, StackTrace h) {
     debugPrint("ERROR = : ${e.toString()}\n\n");
-    debugPrint("\n\nSTACK-TRACE = {h.toString()}\n\n");
+    debugPrint("\n\nSTACK-TRACE = ${h.toString()}\n\n");
   }
 
   static void toastMsg(String title, ToastificationType type) {

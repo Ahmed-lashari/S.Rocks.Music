@@ -29,16 +29,17 @@ class _ScrollableCOntentState extends State<ScrollableCOntent> {
                   style: TextStyle(fontSize: 15.sp),
                   textAlign: TextAlign.center),
               Column(
+                  spacing: 16.h,
                   children: List.generate(widget.list.length, (index) {
-                final content = widget.list[index];
-                return MusicServiceCard(
-                    leadingIconPath: content.icon,
-                    trailingIconPath: content.suffix,
-                    title: content.title,
-                    subTitle: content.subTitle,
-                    bgAsset: content.background,
-                    navigateRoute: content.navigateRoute);
-              })),
+                    final content = widget.list[index];
+                    return MusicServiceCard(
+                        leadingIconPath: content.icon,
+                        trailingIconPath: content.suffix,
+                        title: content.title,
+                        subTitle: content.subTitle,
+                        bgAsset: content.background,
+                        navigateRoute: content.navigateRoute);
+                  })),
               SizedBox.shrink()
             ]));
   }

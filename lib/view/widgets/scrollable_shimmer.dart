@@ -9,12 +9,7 @@ class ScrollableShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        _buildShimer(),
-        _buildShimer(),
-        _buildShimer(),
-        _buildShimer()
-      ],
+      children: List.generate(5, (index) => _buildShimer()),
     );
   }
 
