@@ -11,8 +11,6 @@ import 'package:skility_x/view/widgets/custom_icons.dart';
 import 'package:skility_x/view/widgets/scrollable_content.dart';
 import 'package:skility_x/view/widgets/scrollable_shimmer.dart';
 import 'package:skility_x/view_model/data_providers/screens/home/home_tab/0_home_tab.dart';
-import 'package:skility_x/view_model/screens/home/home_tab/0_home_tab.dart';
-import 'package:toastification/toastification.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -122,18 +120,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               // button
               ElevatedButton(
                   onPressed: () async {
-                    try {
-                      Utils.toastMsg(
-                          "Saving data into database", ToastificationType.info);
-                      final submitted = await HomeAction.saveData();
-                      submitted
-                          ? Utils.toastMsg(
-                              "Successfully saved", ToastificationType.success)
-                          : Utils.toastMsg(
-                              "Error Saving Data", ToastificationType.warning);
-                    } catch (e, h) {
-                      Utils.handleError(e, h);
-                    }
+                    // await HomeAction.saveData();
                   },
                   style: ElevatedButton.styleFrom(
                       fixedSize: Size(110.w, 40.h),
