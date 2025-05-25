@@ -45,7 +45,7 @@ Widget _CustomAppBar() {
       mainAxisSize: MainAxisSize.min,
       children: [
         // display text field
-        _buildPinnedSearchBar(),
+        _buildSearchBar(),
 
 // textual scripts
         _buildTextualDetailsAndAssets(),
@@ -54,7 +54,7 @@ Widget _CustomAppBar() {
   );
 }
 
-Widget _buildPinnedSearchBar() {
+Widget _buildSearchBar() {
   return Container(
       color: AppColors.transparent,
       padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 30.h),
@@ -65,7 +65,7 @@ Widget _buildPinnedSearchBar() {
                 suffixIcon: AppImageIcons.mic,
                 hintText: 'Search "Punjabi Lyrics"',
                 controllerKey: TextControllerKeys.search)),
-        CustomIcon(icon: AppImageIcons.avatar, size: 50)
+        CustomIcon(icon: AppImageIcons.avatar, size: 45)
       ]));
 }
 

@@ -22,7 +22,6 @@ dependencies:
   cached_network_image: ^3.4.1                    # caches the network images
   flutter_launcher_icons: ^0.14.3                 # changes the app logo
   hexcolor: ^3.0.1                                # helps utilizing hex colors in dart
-  dot_curved_bottom_nav: ^0.0.2                   # navigation bar
   flutter_screenutil: ^5.9.3                      # handles the figma file size
   flutter_svg: ^2.1.0                             # displays .svg type images
   flutter_spinkit: ^5.2.1                         # loading indicators

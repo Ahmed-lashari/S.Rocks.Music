@@ -11,11 +11,11 @@ class MusicServiceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       textColor: AppColors.darkRedColor,
-      leading: Container(
+      leading: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
+          color: AppColors.cardMusicBg,
         ),
-        color: AppColors.cardMusicBg,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10.r),
           child: CustomIcon(

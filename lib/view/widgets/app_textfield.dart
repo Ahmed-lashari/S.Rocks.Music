@@ -53,7 +53,7 @@ class myTextField extends ConsumerWidget {
         prefixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: CustomIcon(
-              icon: prefixIcon, size: 30, color: AppColors.whiteColor),
+              icon: prefixIcon, size: 25, color: AppColors.whiteColor),
         ),
         suffixIcon: Row(
           mainAxisSize: MainAxisSize.min,
@@ -67,7 +67,7 @@ class myTextField extends ConsumerWidget {
             Padding(
               padding: EdgeInsets.only(right: 8.0.w),
               child: CustomIcon(
-                  icon: suffixIcon, size: 30, color: AppColors.whiteColor),
+                  icon: suffixIcon, size: 25, color: AppColors.whiteColor),
             ),
           ],
         ),

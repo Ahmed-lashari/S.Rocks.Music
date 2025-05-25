@@ -6,7 +6,7 @@ class AppStaticIcons {
 
 class AppImageIcons {
 // disk and piano layers
-  static const String disk = "assets/all_icons/layers/Layer_1.png";
+  static const String disk = "assets/all_icons/layers/Layer_1.svg";
   static const String piano = "assets/all_icons/layers/Layer_2.svg";
 
   // bottom navigation icons

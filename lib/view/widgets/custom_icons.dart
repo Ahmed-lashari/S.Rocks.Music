@@ -26,8 +26,8 @@ class CustomIcon extends ConsumerWidget {
           if (icon.endsWith(".png")) {
             return Image.asset(
               '$icon',
-              height: size?.h ?? 15.h,
-              width: size?.w ?? 15.w,
+              height: size?.r ?? 15.r,
+              width: size?.r ?? 15.r,
               color: color,
             );
           }
@@ -36,8 +36,8 @@ class CustomIcon extends ConsumerWidget {
           else if (icon.endsWith(".svg")) {
             return SvgPicture.asset(
               "$icon",
-              height: size?.h ?? 15.h,
-              width: size?.w ?? 15.w,
+              height: size?.r ?? 15.r,
+              width: size?.r ?? 15.r,
               colorFilter: (color != null)
                   ? ColorFilter.mode(color!, BlendMode.srcIn)
                   : null,
@@ -49,8 +49,8 @@ class CustomIcon extends ConsumerWidget {
             debugPrint("Picture from Others Image asset");
             return Image.asset(
               '$icon',
-              height: size?.h ?? 15.h,
-              width: size?.w ?? 15.w,
+              height: size?.r ?? 15.r,
+              width: size?.r ?? 15.r,
               color: color,
             );
           }
