@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           spacing: 16.h,
           children: [
             _CustomAppBar(),
-            _ScrollableList(),
+            _ScrollableContent(),
           ],
         ),
       ),
@@ -132,17 +132,59 @@ Widget _buildAssets() {
           ]));
 }
 
+Widget _ScrollableContent() {
+  return (!true) ? _ScrollableShimmer() : _ScrollableList();
+}
+
 Widget _ScrollableList() {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 30.w),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Hire hand-picked Pros for popular music services.",
-            style: TextStyle(fontSize: 15.sp), textAlign: TextAlign.center),
-        MusicServiceCard()
-      ],
-    ),
-  );
+      padding: EdgeInsets.symmetric(horizontal: 30.w),
+      child: Column(
+          spacing: 16.h,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Hire hand-picked Pros for popular music services.",
+                style: TextStyle(fontSize: 15.sp), textAlign: TextAlign.center),
+            MusicServiceCard(
+                leadingIconPath: AppImageIcons.production,
+                trailingIconPath: AppImageIcons.arrow,
+                title: "Music Production",
+                subTitle: "Mixing & Mastering",
+                bgAsset: 'bgAsset',
+                navigateRoute: 'production'),
+            MusicServiceCard(
+                leadingIconPath: AppImageIcons.mixing,
+                trailingIconPath: AppImageIcons.arrow,
+                title: "Mixing & Mastering",
+                subTitle: "Make your track Radio-ready",
+                bgAsset: 'bgAsset',
+                navigateRoute: 'production'),
+            MusicServiceCard(
+                leadingIconPath: AppImageIcons.lyrics,
+                trailingIconPath: AppImageIcons.arrow,
+                title: "Lyrics Writing",
+                subTitle: "Turn feelings into lyrics",
+                bgAsset: 'bgAsset',
+                navigateRoute: 'production'),
+            MusicServiceCard(
+                leadingIconPath: AppImageIcons.vocals,
+                trailingIconPath: AppImageIcons.arrow,
+                title: "Vocals",
+                subTitle: "Vocals that bring your lyrics to life.",
+                bgAsset: 'bgAsset',
+                navigateRoute: 'production'),
+            MusicServiceCard(
+                leadingIconPath: AppImageIcons.vocals,
+                trailingIconPath: AppImageIcons.arrow,
+                title: "Vocals",
+                subTitle: "Vocals that bring your lyrics to life.",
+                bgAsset: 'bgAsset',
+                navigateRoute: '.'),
+            SizedBox.shrink()
+          ]));
+}
+
+Widget _ScrollableShimmer() {
+  return Container();
 }

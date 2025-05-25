@@ -19,4 +19,7 @@ class AppColors {
 
   // music card icon background color
   static Color cardMusicBg = HexColor("#2F2F39");
+  static Color cardMusicBorderColor = HexColor("#2C2D31");
+
+  //
 }

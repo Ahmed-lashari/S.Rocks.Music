@@ -9,13 +9,15 @@ class Cards {
   final String subTitle;
   final String suffix;
   final String background;
+  final String navigateRoute;
 
   const Cards(
       {required this.icon,
       required this.title,
       required this.subTitle,
       required this.suffix,
-      required this.background});
+      required this.background,
+      required this.navigateRoute});
 
 // it will always be Map<String, String> but following the convention fro , dynamic
   factory Cards.fromJson(Map<String, dynamic> json) => _$CardsFromJson(json);

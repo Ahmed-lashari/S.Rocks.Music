@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:skility_x/constants/app_icons.dart';
-import 'package:skility_x/view/screens/home/1_home_tab.dart';
-import 'package:skility_x/view/screens/home/2_news_tab.dart';
-import 'package:skility_x/view/screens/home/3_trackbox_tab.dart';
-import 'package:skility_x/view/screens/home/4_projects_tab.dart';
+import 'package:skility_x/view/screens/home/home_tab/0_home_tab.dart';
+import 'package:skility_x/view/screens/home/news_tab/2_news_tab.dart';
+import 'package:skility_x/view/screens/home/trachbox_tab/3_trackbox_tab.dart';
+import 'package:skility_x/view/screens/home/proejct_tab/4_projects_tab.dart';
 import 'package:skility_x/view/widgets/keep_alive_wrapper.dart';
 
 class HomeConfig {

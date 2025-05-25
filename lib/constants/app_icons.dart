@@ -21,9 +21,9 @@ class AppImageIcons {
   static const String search = "assets/all_icons/icons/Search.svg";
 
   // music icons
-  static const String production =
-      "assets/all_icons/mucis_card_icons/production.svg";
-  static const String mixing = "assets/all_icons/mucis_card_icons/mixing.svg";
+  static const String production = "assets/all_icons/mucis_card_icons/prod.svg";
+  static const String mixing = "assets/all_icons/mucis_card_icons/mixin.svg";
   static const String lyrics = "assets/all_icons/mucis_card_icons/lyrics.svg";
   static const String vocals = "assets/all_icons/mucis_card_icons/vocals.svg";
+  static const String arrow = "assets/all_icons/mucis_card_icons/arrow.svg";
 }
