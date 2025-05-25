@@ -97,8 +97,8 @@ class MusicServiceCard extends StatelessWidget {
     return IconButton(
         icon: CustomIcon(icon: trailingIconPath, size: 17),
         onPressed: () {
-          AppNavigator.navigateTo(context,
-              wRoute: getWidgetFromRoute(navigateRoute));
+          final Widget widget = getRouteWidget(navigateRoute);
+          AppNavigator.navigateTo(context, wRoute: widget);
         });
   }
 }

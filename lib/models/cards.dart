@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'cards.g.dart';
 
 @JsonSerializable()
-class Cards {
+class MusicCardsModel {
   final String icon;
   final String title;
   final String subTitle;
@@ -11,7 +11,7 @@ class Cards {
   final String background;
   final String navigateRoute;
 
-  const Cards(
+  const MusicCardsModel(
       {required this.icon,
       required this.title,
       required this.subTitle,
@@ -20,7 +20,8 @@ class Cards {
       required this.navigateRoute});
 
 // it will always be Map<String, String> but following the convention fro , dynamic
-  factory Cards.fromJson(Map<String, dynamic> json) => _$CardsFromJson(json);
+  factory MusicCardsModel.fromJson(Map<String, dynamic> json) =>
+      _$CardsFromJson(json);
 
 // same for toJson method asw
   Map<String, dynamic> toJson() => _$CardsToJson(this);

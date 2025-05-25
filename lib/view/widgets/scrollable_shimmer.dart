@@ -8,6 +8,17 @@ class ScrollableShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _buildShimer(),
+        _buildShimer(),
+        _buildShimer(),
+        _buildShimer()
+      ],
+    );
+  }
+
+  Widget _buildShimer() {
     return SizedBox(
         width: 1.sw,
         height: 90.h,

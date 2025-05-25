@@ -6,20 +6,20 @@ import 'package:skility_x/view/screens/home/home_tab/3_lyrics_screen.dart';
 import 'package:skility_x/view/screens/home/home_tab/4_vocals_screen.dart';
 import 'package:skility_x/view/screens/home/home_tab/default_fallback.dart';
 
-// we can also create a route enum for better debugging in large projects but for now, its only one screen so that worldnt be an issue
+// we can also utilize enum as well for better debugging but for one screen thats not rellly needed
 
-Widget getWidgetFromRoute(String routeName) {
-  switch (routeName) {
+Widget getRouteWidget(String routeName) {
+  final normalized = routeName.toLowerCase().replaceAll("/", "").trim();
+
+  switch (normalized) {
     case 'production':
       return const ProductionScreen();
-    case 'Mixing':
+    case 'mixing':
       return const MixingScreen();
-    case 'Lyrics':
+    case 'lyrics':
       return const LyricsScreen();
-    case 'Vocals':
+    case 'vocals':
       return const VocalsScreen();
-
-// fallback
     default:
       return const DefaultScreen();
   }

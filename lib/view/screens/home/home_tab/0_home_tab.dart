@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skility_x/constants/app_colors.dart';
 import 'package:skility_x/constants/app_icons.dart';
@@ -9,19 +10,20 @@ import 'package:skility_x/view/widgets/app_textfield.dart';
 import 'package:skility_x/view/widgets/custom_icons.dart';
 import 'package:skility_x/view/widgets/scrollable_content.dart';
 import 'package:skility_x/view/widgets/scrollable_shimmer.dart';
+import 'package:skility_x/view_model/data_providers/screens/home/home_tab/0_home_tab.dart';
+import 'package:toastification/toastification.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // backgroundColor: Colors.blue,
         body: SingleChildScrollView(
             child: Column(
                 spacing: 16.h,
@@ -116,7 +118,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // button
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    try {
+                      Utils.toastMsg(
+                          "Saving data into database", ToastificationType.info);
+                      await ref.read(saveCardsDataProvider);
+                      Utils.toastMsg(
+                          "Successfully saved", ToastificationType.success);
+                    } catch (e, h) {
+                      Utils.handleError(e, h);
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                       fixedSize: Size(110.w, 40.h),
                       padding:
@@ -132,6 +144,21 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _ScrollableContent() {
-    return (!true) ? ScrollableShimmer() : ScrollableCOntent();
+    return Consumer(builder: (context, ref, child) {
+      final data = ref.watch(retriveCardsDataProvider);
+
+      return data.when(
+        error: (e, h) => Text(e.toString()),
+        loading: () => ScrollableShimmer(),
+        data: (data) {
+          if (data.isEmpty) {
+            return Text(
+                "no data available.\nPlease uncomment the Book Now botton function and press one time, after that refresh the app to retrive data.");
+          }
+
+          return ScrollableCOntent(list: data);
+        },
+      );
+    });
   }
 }
