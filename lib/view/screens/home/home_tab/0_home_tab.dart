@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skility_x/constants/app_colors.dart';
 import 'package:skility_x/constants/app_icons.dart';
 import 'package:skility_x/constants/app_keys/text_controller_keys.dart';
+import 'package:skility_x/core/utils.dart/utils.dart';
 import 'package:skility_x/view/themes/theme_constants.dart';
 import 'package:skility_x/view/widgets/app_textfield.dart';
 import 'package:skility_x/view/widgets/custom_icons.dart';
@@ -19,20 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          spacing: 16.h,
-          children: [
-            _CustomAppBar(),
-            _ScrollableContent(),
-          ],
-        ),
-      ),
-    );
+        // backgroundColor: Colors.blue,
+        body: SingleChildScrollView(
+            child: Column(
+                spacing: 16.h,
+                children: [_CustomAppBar(context), _ScrollableContent()])));
   }
 }
 
-Widget _CustomAppBar() {
+Widget _CustomAppBar(BuildContext context) {
   return Container(
     padding: EdgeInsets.symmetric(vertical: 10.h),
     decoration: BoxDecoration(
@@ -45,7 +41,7 @@ Widget _CustomAppBar() {
       mainAxisSize: MainAxisSize.min,
       children: [
         // display text field
-        _buildSearchBar(),
+        _buildSearchBar(context),
 
 // textual scripts
         _buildTextualDetailsAndAssets(),
@@ -54,10 +50,13 @@ Widget _CustomAppBar() {
   );
 }
 
-Widget _buildSearchBar() {
+Widget _buildSearchBar(BuildContext context) {
   return Container(
       color: AppColors.transparent,
-      padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 30.h),
+      padding: EdgeInsets.only(
+          left: 20.w,
+          right: 20.w,
+          top: Utils.getMediaQuery(context).padding.top + 10.h),
       child: Row(spacing: 16.w, children: [
         Expanded(
             child: myTextField(
@@ -71,7 +70,7 @@ Widget _buildSearchBar() {
 
 Widget _buildTextualDetailsAndAssets() {
   return SizedBox(
-      height: 250.h,
+      height: 230.h,
       child: Stack(
           alignment: Alignment.center,
           children: [_buildTextualDetails(), _buildAssets()]));
@@ -138,7 +137,7 @@ Widget _ScrollableContent() {
 
 Widget _ScrollableList() {
   return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.w),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
           spacing: 16.h,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -151,36 +150,36 @@ Widget _ScrollableList() {
                 trailingIconPath: AppImageIcons.arrow,
                 title: "Music Production",
                 subTitle: "Mixing & Mastering",
-                bgAsset: 'bgAsset',
+                bgAsset: AppImageIcons.prodBg,
                 navigateRoute: 'production'),
             MusicServiceCard(
                 leadingIconPath: AppImageIcons.mixing,
                 trailingIconPath: AppImageIcons.arrow,
                 title: "Mixing & Mastering",
                 subTitle: "Make your track Radio-ready",
-                bgAsset: 'bgAsset',
+                bgAsset: AppImageIcons.mixingBg,
                 navigateRoute: 'production'),
             MusicServiceCard(
                 leadingIconPath: AppImageIcons.lyrics,
                 trailingIconPath: AppImageIcons.arrow,
                 title: "Lyrics Writing",
                 subTitle: "Turn feelings into lyrics",
-                bgAsset: 'bgAsset',
+                bgAsset: AppImageIcons.lyricsBg,
                 navigateRoute: 'production'),
             MusicServiceCard(
                 leadingIconPath: AppImageIcons.vocals,
                 trailingIconPath: AppImageIcons.arrow,
                 title: "Vocals",
                 subTitle: "Vocals that bring your lyrics to life.",
-                bgAsset: 'bgAsset',
+                bgAsset: AppImageIcons.vocalsBg,
                 navigateRoute: 'production'),
-            MusicServiceCard(
-                leadingIconPath: AppImageIcons.vocals,
-                trailingIconPath: AppImageIcons.arrow,
-                title: "Vocals",
-                subTitle: "Vocals that bring your lyrics to life.",
-                bgAsset: 'bgAsset',
-                navigateRoute: '.'),
+            // MusicServiceCard(
+            //     leadingIconPath: AppImageIcons.vocals,
+            //     trailingIconPath: AppImageIcons.arrow,
+            //     title: "Vocals",
+            //     subTitle: "Vocals that bring your lyrics to life.",
+            //     bgAsset: 'bgAsset',
+            //     navigateRoute: '.'),
             SizedBox.shrink()
           ]));
 }

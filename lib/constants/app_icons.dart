@@ -26,4 +26,10 @@ class AppImageIcons {
   static const String lyrics = "assets/all_icons/mucis_card_icons/lyrics.svg";
   static const String vocals = "assets/all_icons/mucis_card_icons/vocals.svg";
   static const String arrow = "assets/all_icons/mucis_card_icons/arrow.svg";
+
+  // music card background images
+  static const String prodBg = "assets/all_icons/card_bg/production.png";
+  static const String mixingBg = "assets/all_icons/card_bg/mixing.png";
+  static const String vocalsBg = "assets/all_icons/card_bg/vocals.png";
+  static const String lyricsBg = "assets/all_icons/card_bg/lyrics.png";
 }

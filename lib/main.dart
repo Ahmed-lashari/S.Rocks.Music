@@ -25,7 +25,7 @@ class _SRocksMusicState extends State<SRocksMusic> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(390, 845),
+        designSize: const Size(390, 845), // taken from figma assignemnt file
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) => SafeArea(

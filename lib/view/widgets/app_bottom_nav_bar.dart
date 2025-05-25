@@ -28,26 +28,23 @@ class _CustomBottomNavigationBarState
   Widget build(BuildContext context) {
     debugPrint('building whole nav bar');
     return Container(
-        padding: EdgeInsets.only(bottom: 10.h, left: 10.w, right: 10.w),
         decoration: BoxDecoration(
-          border: Border(top: BorderSide(color: AppColors.navBarBorderColor)),
-          color: AppColors.navBarBgColor,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(10.r)),
-        ),
+            border: Border(top: BorderSide(color: AppColors.navBarBorderColor)),
+            color: AppColors.navBarBgColor,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(10.r))),
         child: Stack(children: [_buildIndicator(), _buildNavItems()]));
   }
 
   Widget _buildIndicator() {
-    final double maxAlign = 0.88.w;
-    final double boundries = 0.9.w;
+    final double maxAlign = 0.88;
+    final double boundries = 0.9;
     final int n = _navBarList.length;
 
     return Positioned(
-      top: 0,
-      right: 0,
-      left: 0,
-      child: Consumer(
-        builder: (context, ref, child) {
+        top: 0,
+        right: 0,
+        left: 0,
+        child: Consumer(builder: (context, ref, child) {
           final selectedIndex = ref.watch(homeViewModelProvider);
 
           /// starting/emding point (-1 to 1)
@@ -69,55 +66,47 @@ class _CustomBottomNavigationBarState
                       color: AppColors.whiteColor,
                       borderRadius: BorderRadius.vertical(
                           bottom: Radius.circular(50.r)))));
-        },
-      ),
-    );
+        }));
   }
 
   Widget _buildNavItems() {
-    return Consumer(
-      builder: (context, ref, child) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(_navBarList.length, (index) {
-            return GestureDetector(
-              onTap: () =>
-                  ref.read(homeViewModelProvider.notifier).setIndex(index),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(height: 20.h),
-                  Consumer(builder: (context, ref, _) {
-                    final selectedIndex = ref.watch(homeViewModelProvider);
+    return Padding(
+        padding: EdgeInsets.only(bottom: 10.h, left: 10.w, right: 10.w),
+        child: Consumer(builder: (context, ref, child) {
+          return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(_navBarList.length, (index) {
+                return GestureDetector(
+                    onTap: () => ref
+                        .read(homeViewModelProvider.notifier)
+                        .setIndex(index),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      SizedBox(height: 20.h),
+                      Consumer(builder: (context, ref, _) {
+                        final selectedIndex = ref.watch(homeViewModelProvider);
 
-                    final isSelected = selectedIndex == index;
-                    return CustomIcon(
-                        icon: _navBarList[index].icon,
-                        size: 22,
-                        color: isSelected
-                            ? AppColors.whiteColor
-                            : AppColors.navBarUnselectedColor);
-                  }),
-                  Consumer(
-                    builder: (context, ref, _) {
-                      final selectedIndex = ref.watch(homeViewModelProvider);
-
-                      final isSelected = selectedIndex == index;
-                      return Text(_navBarList[index].label,
-                          style: TextStyle(
+                        final isSelected = selectedIndex == index;
+                        return CustomIcon(
+                            icon: _navBarList[index].icon,
+                            size: 22,
                             color: isSelected
                                 ? AppColors.whiteColor
-                                : AppColors.navBarUnselectedColor,
-                            fontSize: 12.sp,
-                          ));
-                    },
-                  )
-                ],
-              ),
-            );
-          }),
-        );
-      },
-    );
+                                : AppColors.navBarUnselectedColor);
+                      }),
+                      Consumer(builder: (context, ref, _) {
+                        final selectedIndex = ref.watch(homeViewModelProvider);
+
+                        final isSelected = selectedIndex == index;
+                        return Text(_navBarList[index].label,
+                            style: TextStyle(
+                              color: isSelected
+                                  ? AppColors.whiteColor
+                                  : AppColors.navBarUnselectedColor,
+                              fontSize: 12.sp,
+                            ));
+                      })
+                    ]));
+              }));
+        }));
   }
 }

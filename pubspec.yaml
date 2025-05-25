@@ -78,6 +78,9 @@ flutter:
 
   # music card icons
     - assets/all_icons/mucis_card_icons/
+  
+  # music card backgound images
+    - assets/all_icons/card_bg/
   #   - images/a_dot_ham.jpeg
   #   - images/a_dot_ham.jpeg
 
