@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skility_x/constants/app_colors.dart';
 import 'package:toastification/toastification.dart';
 
 class Utils {
@@ -25,5 +27,21 @@ class Utils {
       type: type,
       title: Text(title),
     );
+  }
+
+// Helper method to calculate the width of static text
+  static double getStaticTextWidth(String text) {
+    final TextPainter textPainter = TextPainter(
+      text: TextSpan(
+        text: text,
+        style: TextStyle(
+          fontSize: 16.sp,
+          color: AppColors.whiteColor.withValues(alpha: 0.6),
+        ),
+      ),
+      maxLines: 1,
+      textDirection: TextDirection.ltr,
+    )..layout();
+    return textPainter.size.width + 3.w;
   }
 }

@@ -11,6 +11,7 @@ import 'package:skility_x/view/widgets/custom_icons.dart';
 import 'package:skility_x/view/widgets/scrollable_content.dart';
 import 'package:skility_x/view/widgets/scrollable_shimmer.dart';
 import 'package:skility_x/view_model/data_providers/screens/home/home_tab/0_home_tab.dart';
+import 'package:skility_x/view_model/screens/home/home_tab/0_home_tab.dart';
 import 'package:toastification/toastification.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -32,24 +33,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   Widget _CustomAppBar(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10.h),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(10.r)),
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [AppColors.vibrantRedColor, AppColors.darkRedColor])),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
+        padding: EdgeInsets.symmetric(vertical: 10.h),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(10.r)),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [AppColors.vibrantRedColor, AppColors.darkRedColor])),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
           // display text field
           _buildSearchBar(context),
 
 // textual scripts
-          _buildTextualDetailsAndAssets(),
-        ],
-      ),
-    );
+          _buildTextualDetailsAndAssets()
+        ]));
   }
 
   Widget _buildSearchBar(BuildContext context) {
@@ -64,7 +61,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: myTextField(
                   prefixIcon: AppImageIcons.search,
                   suffixIcon: AppImageIcons.mic,
-                  hintText: 'Search "Punjabi Lyrics"',
+                  staticPrefix: "Search",
+                  hintMessages: [
+                    '"Punjabi Lyrics"',
+                    '"Hindi Rap Vocals"',
+                    '"Mix and master"',
+                    '"Hip Hop Beats"',
+                  ],
                   controllerKey: TextControllerKeys.search)),
           CustomIcon(icon: AppImageIcons.avatar, size: 45)
         ]));
@@ -119,15 +122,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               // button
               ElevatedButton(
                   onPressed: () async {
-                    // try {
-                    //   Utils.toastMsg(
-                    //       "Saving data into database", ToastificationType.info);
-                    //   await ref.read(saveCardsDataProvider);
-                    //   Utils.toastMsg(
-                    //       "Successfully saved", ToastificationType.success);
-                    // } catch (e, h) {
-                    //   Utils.handleError(e, h);
-                    // }
+                    try {
+                      Utils.toastMsg(
+                          "Saving data into database", ToastificationType.info);
+                      final submitted = await HomeAction.saveData();
+                      submitted
+                          ? Utils.toastMsg(
+                              "Successfully saved", ToastificationType.success)
+                          : Utils.toastMsg(
+                              "Error Saving Data", ToastificationType.warning);
+                    } catch (e, h) {
+                      Utils.handleError(e, h);
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                       fixedSize: Size(110.w, 40.h),
@@ -152,9 +158,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         loading: () => ScrollableShimmer(),
         data: (data) {
           if (data.isEmpty)
-            Text(
-                "No data available.\nPlease uncomment the Book Now botton function and press one time, after that refresh the app to retrive data.");
-
+            return Text(
+              "No data available.\nPlease uncomment the Book Now botton function and press one time, after that refresh the app to retrive data.",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 15.sp, fontFamily: AppTypoGraphy.bold),
+            );
           return ScrollableCOntent(list: data);
         },
       );

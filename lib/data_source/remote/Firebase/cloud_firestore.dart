@@ -13,12 +13,17 @@ class CloudFirestoreService {
 
   // get datta
   static Future<List<MusicCardsModel>> retriveDataInFirestore() async {
-    final doc = await FirebaseManager.firestore
+    final docSnapshot = await FirebaseManager.firestore
         .collection("music_cards_data")
         .doc("combined_documents")
         .get();
 
-    final List cards = doc['cards'];
+    if (!docSnapshot.exists) {
+      // Document doesn't exist, return empty list or handle accordingly
+      return [];
+    }
+
+    final List<dynamic> cards = docSnapshot.data()?['cards'] ?? [];
 
     final data = cards.map((e) => MusicCardsModel.fromJson(e)).toList();
 
