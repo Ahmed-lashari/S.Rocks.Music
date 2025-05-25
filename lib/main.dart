@@ -25,23 +25,19 @@ class _SRocksMusicState extends State<SRocksMusic> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(390, 845),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return SafeArea(
-          top: false,
-          bottom: true,
-          right: true,
-          left: true,
-          child: MaterialApp(
-              debugShowCheckedModeBanner: false,
-              themeMode: ThemeMode.dark,
-              theme: ThemeManager.darkTheme,
-              home: child),
-        );
-      },
-      child: const HomeTabs(),
-    );
+        designSize: const Size(390, 845),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) => SafeArea(
+            top: false,
+            bottom: true,
+            right: true,
+            left: true,
+            child: MaterialApp(
+                debugShowCheckedModeBanner: false,
+                themeMode: ThemeMode.dark,
+                theme: ThemeManager.darkTheme,
+                home: child)),
+        child: const HomeTabs());
   }
 }

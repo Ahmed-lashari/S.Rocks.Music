@@ -64,6 +64,10 @@ flutter:
   uses-material-design: true
 
   assets:
+  # layers
+    - assets/all_icons/layers/
+
+
   # app logo path
     - assets/all_icons/layers/Layer_1.png
 

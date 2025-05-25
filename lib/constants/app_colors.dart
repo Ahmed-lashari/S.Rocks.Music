@@ -3,7 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 class AppColors {
   static Color navBarBgColor = HexColor('#18171C');
-  static Color navBarBorderColor = HexColor('#2C2D31');
+  // static Color navBarBorderColor = HexColor('#2C2D31');
   static Color navBarUnselectedColor = HexColor('#61616B');
   static Color whiteColor = HexColor('#FFFFFF');
   static Color textFieldBgColor = HexColor('#2F2F39');
@@ -12,4 +12,11 @@ class AppColors {
   // grdient color
   static Color vibrantRedColor = HexColor('#A90140');
   static Color darkRedColor = HexColor('#550120');
+
+  // transparent
+  static Color transparent = Colors.transparent;
+  static Color blackColor = Colors.black;
+
+  // music card icon background color
+  static Color cardMusicBg = HexColor("#2F2F39");
 }
