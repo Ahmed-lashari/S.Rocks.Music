@@ -13,7 +13,7 @@
 
 <p align="center">
   <video width="600" controls>
-    <source src="https://github.com/Ahmed-lashari/S.Rocks.Music/raw/main/assets/assignment_overview/assignment_overview.mp4" type="video/mp4">
+    <source src="https://github.com/Ahmed-lashari/S.Rocks.Music/blob/main/assets/assignment_overview/assignment_overview.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </p>
