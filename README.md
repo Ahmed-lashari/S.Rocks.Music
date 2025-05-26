@@ -17,6 +17,8 @@
     <source src="https://github.com/Ahmed-lashari/S.Rocks.Music/blob/main/assets/assignment_overview/assignment_overview.mp4" type="video/mp4">
   </video>
 </p>
+
+
 [proj_overview.mp4](https://github.com/Ahmed-lashari/S.Rocks.Music/blob/main/assets/assignment_overview/assignment_overview.mp4)
 
 ---
@@ -85,8 +87,6 @@ lib/
   </tr>
 </table>
 
-
-> Replace the placeholder paths above (`assets/screenshots/...`) with your actual screenshot image files.
 
 ---
 
